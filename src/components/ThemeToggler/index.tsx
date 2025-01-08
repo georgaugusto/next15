@@ -4,30 +4,29 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export function ThemeToggler() {
-  const [mount, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-  if (!mount) return <p>loadConfig...</p>
-
-  if (resolvedTheme === 'dark') {
-    return (
-      <div>
-        The current theme is: {theme}
-        <button onClick={() => setTheme('light')}>Light Mode</button>
-        <button onClick={() => setTheme('dark')}>Dark Mode</button>
-      </div>
-    )
+  if (!mounted) {
+    return null
   }
 
-  if (resolvedTheme === 'light') {
-    return (
-      <div>
-        The current theme is: {theme}
-        <button onClick={() => setTheme('light')}>Light Mode</button>
-        <button onClick={() => setTheme('dark')}>Dark Mode</button>
-      </div>
-    )
+  const handleThemeChange = (newTheme: string) => {
+    setTheme(newTheme)
   }
+
+  return (
+    <div>
+      <p>The current theme is: {theme}</p>
+      {resolvedTheme === 'dark' ? (
+        <button onClick={() => handleThemeChange('light')}>Light Mode</button>
+      ) : (
+        <button onClick={() => handleThemeChange('dark')}>Dark Mode</button>
+      )}
+    </div>
+  )
 }
