@@ -1,13 +1,8 @@
-// 'use client'
-
 import type { Metadata } from 'next'
-// import './globals.css'
-// import { ThemeProvider } from '@/providers/theme/index'
+
+import Providers from '@/providers'
 
 import '@/styles/globalTheme.css'
-// import 'src/styles/globalTheme.css'
-
-import ThemeProvider from '@/context/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,12 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>{/* <OptimizeTypeKit projectId="ygf6mjq" /> */}</head>
+      <head></head>
       <body>
-        <ThemeProvider>
-          {children}
-          {/* <ThemeProvider defaultTheme="dark">{children}</ThemeProvider> */}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

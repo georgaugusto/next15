@@ -1,34 +1,22 @@
 'use client'
 
-import { ReactNode } from 'react'
-
+import { darkTheme, lightTheme } from '@/styles/globalTheme.css'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
-import { Theme } from '@/theme'
 
-import * as styles from './styles.css'
-
-import '@/theme/global.css'
-
-export const ThemeProvider = ({
-  children,
-  theme,
-  defaultTheme,
-}: {
-  children: ReactNode
-  defaultTheme?: Theme
-  theme?: Theme
-}) => {
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <NextThemeProvider
-        attribute="class"
-        defaultTheme={defaultTheme}
-        forcedTheme={theme}
-      >
-        {/* {children} */}
-        <div className={styles.providerRoot}>{children}</div>
-      </NextThemeProvider>
-    </>
+    <NextThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+      value={{
+        light: lightTheme,
+        dark: darkTheme,
+      }}
+    >
+      {children}
+    </NextThemeProvider>
   )
 }
 
