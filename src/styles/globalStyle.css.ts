@@ -7,5 +7,5 @@ globalStyle('*', {
 })
 
 globalStyle('body', {
-  '-webkit-font-smoothing': 'antialiased',
+  WebkitBackgroundClip: 'antialiased',
 })
