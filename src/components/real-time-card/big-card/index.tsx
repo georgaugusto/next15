@@ -1,13 +1,14 @@
 'use client'
 
 import { Box, Text } from '@setgoh-ui/react'
-import RealTimeRainText from '../max-min'
+
 import RealTimeCurrent from '../current'
 
 import { Measurement } from '@/domains/ecowitt'
 import { renderRealTimeCardIcons } from '@/utils/render-real-time-card-icons'
 
 import * as styles from './styles.css'
+import RealTimeRainText from '../rain-text'
 
 interface RainfallPiezoData {
   rain_rate: Measurement
