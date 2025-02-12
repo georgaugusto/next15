@@ -1,30 +1,45 @@
 'use client'
 
 import { Text } from '@setgoh-ui/react'
+import { IconCaretDownFilled, IconCaretUpFilled } from '@tabler/icons-react'
 
 import * as styles from './styles.css'
 
-const RealTimeRainText = ({
-  name,
-  value,
-  unit,
+const RealTimeMaxMin = ({
+  maxValue,
+  maxUnit,
+  minValue,
+  minUnit,
 }: {
-  name: string
-  value: string
-  unit: string
+  maxValue: string
+  maxUnit: string
+  minValue: string
+  minUnit: string
 }) => {
-  if (!value) {
+  if (!maxValue && !minValue) {
     return null
   }
 
   return (
     <div className={styles.Another}>
-      <Text size="sm">{name}</Text>
-      <Text size="lg">
-        {value}
-        {unit && (
+      <Text size="sm">Maxima</Text>
+      <Text size="lg" className={styles.Max}>
+        <IconCaretUpFilled stroke={1} size={16} />
+        {maxValue}
+        {maxUnit && (
           <Text as="span" size="sm">
-            {unit}
+            {maxUnit}
+          </Text>
+        )}
+      </Text>
+
+      <Text size="sm">Minima</Text>
+      <Text size="lg" className={styles.Min}>
+        <IconCaretDownFilled stroke={1} size={16} />
+        {minValue}
+        {minUnit && (
+          <Text as="span" size="sm">
+            {minUnit}
           </Text>
         )}
       </Text>
@@ -32,4 +47,4 @@ const RealTimeRainText = ({
   )
 }
 
-export default RealTimeRainText
+export default RealTimeMaxMin
