@@ -1,6 +1,8 @@
 'use client'
 
-import { darkTheme, lightTheme } from '@/styles/globalTheme.css'
+// import { darkTheme, lightTheme } from '@/styles/globalTheme.css'
+// import { darkTheme, lightTheme } from '@/styles_copy/globalTheme.css'
+import { lightThemeClass, darkThemeClass } from '@setgoh-ui/react'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -11,8 +13,8 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       enableSystem
       disableTransitionOnChange
       value={{
-        light: lightTheme,
-        dark: darkTheme,
+        light: lightThemeClass,
+        dark: darkThemeClass,
       }}
     >
       {children}
