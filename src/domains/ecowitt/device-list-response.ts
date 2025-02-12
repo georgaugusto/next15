@@ -19,5 +19,5 @@ export interface Device {
   longitude: number
   latitude: number
   stationtype: string
-  iotdevice_list: any[]
+  iotdevice_list: unknown[]
 }
