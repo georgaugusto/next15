@@ -20,7 +20,10 @@ const RealTimeMediumCard = ({
   value: string
   unit: string
   calc?: string
-  maxmin?: string
+  maxmin?: {
+    max: { value: number; timestamp: number }
+    min: { value: number; timestamp: number }
+  }
 }) => {
   if (!value) {
     return null
@@ -38,9 +41,9 @@ const RealTimeMediumCard = ({
 
         {maxmin && (
           <RealTimeMaxMin
-            maxValue={value}
+            maxValue={maxmin.max.value}
             maxUnit={unit}
-            minValue={value}
+            minValue={maxmin.min.value}
             minUnit={unit}
           />
         )}

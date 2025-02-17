@@ -7,8 +7,20 @@ import RealTimeMediumCard from '../real-time-card/medium-card'
 import * as styles from './styles.css'
 
 interface Section4Props {
-  relative: Measurement
-  absolute: Measurement
+  relative: {
+    last: Measurement
+    maxmin?: {
+      max: { value: number; timestamp: number }
+      min: { value: number; timestamp: number }
+    }
+  }
+  absolute: {
+    last: Measurement
+    maxmin?: {
+      max: { value: number; timestamp: number }
+      min: { value: number; timestamp: number }
+    }
+  }
 }
 
 export default function Section4({ relative, absolute }: Section4Props) {
@@ -16,14 +28,16 @@ export default function Section4({ relative, absolute }: Section4Props) {
     <div className={styles.Section2}>
       <RealTimeMediumCard
         title="Pressure Relative"
-        value={relative.value}
-        unit={relative.unit}
+        value={relative.last.value}
+        unit={relative.last.unit}
+        maxmin={relative.maxmin}
       />
 
       <RealTimeMediumCard
         title="Pressure Absolute"
-        value={absolute.value}
-        unit={absolute.unit}
+        value={absolute.last.value}
+        unit={absolute.last.unit}
+        maxmin={absolute.maxmin}
       />
     </div>
   )

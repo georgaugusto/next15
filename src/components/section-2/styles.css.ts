@@ -7,13 +7,20 @@ export const Section2 = style([
   }),
   {
     gridArea: '2 / 1 / 4 / 4',
-    // gridArea: '2 / 1 / 4 / 4',
 
     display: 'flex',
 
     '@media': {
       'screen and (max-width: 1024px)': {
-        gridArea: '2 / 1 / 4 / 5',
+        // height: '150px',
+        // gridArea: '2 / 1 / 4 / 5',
+      },
+
+      'screen and (max-width: 768px)': {
+        // height: '150px',
+
+        flexDirection: 'column',
+
         // gridArea: '2 / 1 / 4 / 5',
       },
     },

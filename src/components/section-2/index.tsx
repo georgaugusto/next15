@@ -7,8 +7,20 @@ import RealTimeMediumCard from '../real-time-card/medium-card'
 import * as styles from './styles.css'
 
 interface Section2Props {
-  temperature: Measurement
-  humidity: Measurement
+  temperature: {
+    last: Measurement
+    maxmin?: {
+      max: { value: number; timestamp: number }
+      min: { value: number; timestamp: number }
+    }
+  }
+  humidity: {
+    last: Measurement
+    maxmin?: {
+      max: { value: number; timestamp: number }
+      min: { value: number; timestamp: number }
+    }
+  }
 }
 
 export default function Section2({ temperature, humidity }: Section2Props) {
@@ -16,14 +28,16 @@ export default function Section2({ temperature, humidity }: Section2Props) {
     <div className={styles.Section2}>
       <RealTimeMediumCard
         title="Temperature"
-        value={temperature.value}
-        unit={temperature.unit}
+        value={temperature.last.value}
+        unit={temperature.last.unit}
+        maxmin={temperature.maxmin}
       />
 
       <RealTimeMediumCard
         title="Humidity"
-        value={humidity.value}
-        unit={humidity.unit}
+        value={humidity.last.value}
+        unit={humidity.last.unit}
+        maxmin={humidity.maxmin}
       />
     </div>
   )

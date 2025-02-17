@@ -29,7 +29,9 @@ export async function getDeviceRealTime(
     ...UNIT_IDS,
   }).toString()
 
-  const response = await fetch(`${API_URL}/device/real_time?${queryString}`)
+  const response = await fetch(`${API_URL}/device/real_time?${queryString}`, {
+    next: { revalidate: 120 },
+  })
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)
@@ -40,20 +42,25 @@ export async function getDeviceRealTime(
   return data
 }
 
-export async function getDeviceHistory(): Promise<DeviceHistoryResponse> {
+export async function getDeviceHistory(
+  startDate: string,
+  endDate: string,
+): Promise<DeviceHistoryResponse> {
   const queryString = new URLSearchParams({
     application_key: APPLICATION_KEY,
     api_key: API_KEY,
     mac: MAC,
-    start_date: '2025-01-20 00:00:00',
-    end_date: '2025-01-20 23:59:59',
+    start_date: startDate,
+    end_date: endDate,
     call_back:
       'outdoor,indoor,solar_and_uvi,rainfall_piezo,wind,pressure,battery',
     cycle_type: 'auto',
     ...UNIT_IDS,
   }).toString()
 
-  const response = await fetch(`${API_URL}/device/history?${queryString}`)
+  const response = await fetch(`${API_URL}/device/history?${queryString}`, {
+    next: { revalidate: 600 },
+  })
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)
@@ -70,7 +77,9 @@ export async function getDeviceList(): Promise<DeviceListResponse> {
     api_key: API_KEY,
   }).toString()
 
-  const response = await fetch(`${API_URL}/device/list?${queryString}`)
+  const response = await fetch(`${API_URL}/device/list?${queryString}`, {
+    next: { revalidate: 120 },
+  })
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)

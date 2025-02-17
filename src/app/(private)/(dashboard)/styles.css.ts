@@ -23,9 +23,9 @@ export const Container = style([
 
         margin: '1rem',
 
-        gridTemplateRows: 'repeat(9, 1fr)',
-        gridColumnGap: '1rem',
-        gridRowGap: '1rem',
+        display: 'flex',
+
+        flexDirection: 'column',
       },
     },
   },

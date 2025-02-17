@@ -29,6 +29,8 @@ export const Container = style([
   {
     height: '100%',
 
+    minHeight: '150px',
+
     display: 'flex',
     flexDirection: 'row',
 

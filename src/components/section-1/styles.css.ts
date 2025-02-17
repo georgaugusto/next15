@@ -5,12 +5,18 @@ export const Box = style([
   sprinkles({}),
   {
     width: '100%',
-    height: '100%',
+    // height: '100%',
     gridArea: '1 / 1 / 2 / 5',
 
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+
+    '@media': {
+      'screen and (max-width: 1024px)': {
+        // gridArea: '1 / 1 / 1 / 5',
+      },
+    },
   },
 ])
 
@@ -25,9 +31,7 @@ export const Name = style([
   {
     display: 'flex',
 
-    // fontFamily: 'Arial, sans-serif', // Example font, customize as needed
-    // fontWeight: 'bold', // Example weight, adjust as needed
-    textAlign: 'center', // Example alignment, adjust as needed
+    textAlign: 'center',
   },
 ])
 

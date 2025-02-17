@@ -2,7 +2,7 @@ import { EcowittApiResponse } from './ecowitt-api'
 
 export type DeviceHistoryResponse = EcowittApiResponse<DeviceHistoryData>
 
-interface DeviceHistoryData {
+export interface DeviceHistoryData {
   outdoor: WeatherMetrics
   indoor: WeatherMetrics
   solar_and_uvi: SolarAndUVI

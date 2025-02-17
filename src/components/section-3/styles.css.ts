@@ -2,10 +2,7 @@ import { sprinkles } from '@setgoh-ui/react'
 import { style } from '@vanilla-extract/css'
 
 export const Section2 = style([
-  sprinkles({
-    // gap: 20,
-    // marginLeft: 10,
-  }),
+  sprinkles({}),
   {
     height: '100%',
     gridArea: '4 / 1 / 6 / 4',
@@ -19,10 +16,7 @@ export const Section2 = style([
 ])
 
 export const Parent = style([
-  sprinkles({
-    // gap: 20,
-    // marginLeft: 10,
-  }),
+  sprinkles({}),
   {
     height: '100%',
 
@@ -34,7 +28,7 @@ export const Parent = style([
 
     '@media': {
       'screen and (max-width: 1024px)': {
-        gridArea: '4 / 1 / 6 / 5',
+        // gridArea: '4 / 1 / 6 / 5',
       },
     },
   },

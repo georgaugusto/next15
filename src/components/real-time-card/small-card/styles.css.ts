@@ -6,6 +6,8 @@ export const Box = style([
     gap: 2,
   }),
   {
+    minWidth: '220px',
+
     display: 'flex',
   },
 ])

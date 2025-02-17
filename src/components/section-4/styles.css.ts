@@ -10,19 +10,32 @@ export const Section2 = style([
 
     display: 'flex',
 
+    // '@media': {
+    //   'screen and (max-width: 1024px)': {
+    //     height: '150px',
+
+    //     gridArea: '6 / 1 / 8 / 5',
+    //   },
+
     '@media': {
       'screen and (max-width: 1024px)': {
-        gridArea: '6 / 1 / 8 / 5',
+        // height: '150px',
+        // gridArea: '2 / 1 / 4 / 5',
+      },
+
+      'screen and (max-width: 768px)': {
+        // height: '150px',
+
+        flexDirection: 'column',
+
+        // gridArea: '2 / 1 / 4 / 5',
       },
     },
   },
 ])
 
 export const Box = style([
-  sprinkles({
-    // gap: 20,
-    // marginLeft: 10,
-  }),
+  sprinkles({}),
   {
     width: '100%',
     height: '100%',

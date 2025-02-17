@@ -1,8 +1,8 @@
 'use client'
 
-import { IconMenu2, IconSettings } from '@tabler/icons-react'
+// import { IconMenu2, IconSettings } from '@tabler/icons-react'
 
-import { Box } from '@setgoh-ui/react'
+import { Box, Text } from '@setgoh-ui/react'
 
 import { ThemeToggler } from '@/components/theme-toggler'
 
@@ -12,15 +12,15 @@ export default function Section1() {
   return (
     <Box className={styles.Box}>
       <div className={styles.LeftBoxDiv}>
-        <IconMenu2 stroke={1} size="32" />
-        <h6 className={styles.Name}>SolouChuva</h6>
+        {/* <IconMenu2 stroke={1} size="32" /> */}
+        {/* <h6 className={styles.Name}>SolouChuva</h6> */}
       </div>
 
-      <span>wheather station</span>
+      <Text>Wheather Station</Text>
 
       <div className={styles.RightBoxDiv}>
         <ThemeToggler />
-        <IconSettings stroke={1} size="32" />
+        {/* <IconSettings stroke={1} size="32" /> */}
       </div>
     </Box>
   )

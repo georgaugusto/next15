@@ -11,9 +11,9 @@ const RealTimeMaxMin = ({
   minValue,
   minUnit,
 }: {
-  maxValue: string
+  maxValue: string | number
   maxUnit: string
-  minValue: string
+  minValue: string | number
   minUnit: string
 }) => {
   if (!maxValue && !minValue) {

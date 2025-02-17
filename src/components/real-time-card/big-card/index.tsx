@@ -42,7 +42,9 @@ const RealTimeBigCard = ({ rainfallPiezo }: RealTimeBigCardProps) => {
         <Text size="sm">Daily</Text>
         <RealTimeCurrent value={daily.value} unit={daily.unit} />
 
-        <RealTimeRainText name="State" value={state.value} unit={state.unit} />
+        <Text size="sm">State</Text>
+        <Text size="4xl">{state.value ? 'No Rain' : 'Raining'}</Text>
+
         <RealTimeRainText name="Event" value={event.value} unit={event.unit} />
         <RealTimeRainText
           name="Hourly"
